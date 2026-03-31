@@ -1,0 +1,323 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "GoHighLevel API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/contacts/": {
+      "get": {
+        "operationId": "get_contacts",
+        "summary": "Search and list contacts in HighLevel",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Search term"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of results"
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_contact",
+        "summary": "Create a new contact in HighLevel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email"
+                ],
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "description": "First name"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "description": "Last name"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email address"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Phone number"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "description": "Tags to apply"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Lead source"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "operationId": "get_contact",
+        "summary": "Get a single contact by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID"
+          }
+        ]
+      },
+      "put": {
+        "operationId": "update_contact",
+        "summary": "Update an existing contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete_contact",
+        "summary": "Delete a contact from HighLevel",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID"
+          }
+        ]
+      }
+    },
+    "/contacts/{id}/tags": {
+      "post": {
+        "operationId": "add_tags",
+        "summary": "Add tags to a contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "tags"
+                ],
+                "properties": {
+                  "tags": {
+                    "type": "array",
+                    "description": "Tags to add"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/opportunities/": {
+      "get": {
+        "operationId": "get_opportunities",
+        "summary": "List pipeline opportunities",
+        "parameters": [
+          {
+            "name": "pipeline_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Pipeline ID"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Status filter"
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_opportunity",
+        "summary": "Create a new pipeline opportunity",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "pipelineId",
+                  "contactId",
+                  "name"
+                ],
+                "properties": {
+                  "pipelineId": {
+                    "type": "string",
+                    "description": "Pipeline ID"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "Contact ID"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Opportunity name"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "open, won, lost, abandoned"
+                  },
+                  "stageId": {
+                    "type": "string",
+                    "description": "Stage ID"
+                  },
+                  "monetaryValue": {
+                    "type": "number",
+                    "description": "Deal value"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pipelines/": {
+      "get": {
+        "operationId": "get_pipelines",
+        "summary": "Get all pipelines in HighLevel",
+        "parameters": []
+      }
+    },
+    "/conversations/messages/": {
+      "post": {
+        "operationId": "send_message",
+        "summary": "Send a message to a contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "type",
+                  "contactId",
+                  "message"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "SMS, Email, WhatsApp"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "Contact ID"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "Message body"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/workflows/": {
+      "get": {
+        "operationId": "get_workflows",
+        "summary": "Get all workflows in HighLevel",
+        "parameters": []
+      }
+    },
+    "/calendars/events/": {
+      "get": {
+        "operationId": "get_calendar_events",
+        "summary": "Get calendar appointments and events",
+        "parameters": [
+          {
+            "name": "startTime",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Start date"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "End date"
+          }
+        ]
+      }
+    }
+  }
+}
