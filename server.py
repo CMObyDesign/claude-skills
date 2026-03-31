@@ -2,21 +2,20 @@
 """GHL MCP Server - Multi-location support with PIT tokens."""
 import os
 import requests
-import uvicorn
 from fastmcp import FastMCP
 
 mcp = FastMCP(name='HighLevel Agency MCP')
 
 GHL_BASE_URL = "https://services.leadconnectorhq.com"
 
-def get_api_key(location_id=None):
+def get_api_key(location_id: str = None):
     if location_id:
         key = os.environ.get(f"GHL_LOCATION_KEY_{location_id}")
         if key:
             return key
     return os.environ.get("GHL_API_KEY")
 
-def ghl_headers(location_id=None):
+def ghl_headers(location_id: str = None):
     return {
         "Authorization": f"Bearer {get_api_key(location_id)}",
         "Content-Type": "application/json",
@@ -24,64 +23,48 @@ def ghl_headers(location_id=None):
     }
 
 @mcp.tool()
-def get_locations(input: dict) -> dict:
+def get_locations() -> dict:
     """Get all subaccounts/locations in the agency"""
     r = requests.get(f"{GHL_BASE_URL}/locations/search", headers=ghl_headers())
     return r.json()
 
 @mcp.tool()
-def get_contacts(input: dict) -> dict:
-    """Search and list contacts in HighLevel"""
-    location_id = input.get("location_id")
-    params = {"locationId": location_id, "query": input.get("query", "")}
-    r = requests.get(f"{GHL_BASE_URL}/contacts/", headers=ghl_headers(location_id), params=params)
+def get_contacts(location_id: str, query: str = "") -> dict:
+    """Get contacts from a specific subaccount"""
+    r = requests.get(f"{GHL_BASE_URL}/contacts/", headers=ghl_headers(location_id), params={"locationId": location_id, "query": query})
     return r.json()
 
 @mcp.tool()
-def create_contact(input: dict) -> dict:
+def create_contact(location_id: str, email: str, firstName: str = "", lastName: str = "", phone: str = "", tags: str = "") -> dict:
     """Create a new contact in HighLevel"""
-    location_id = input.get("location_id")
-    payload = {
-        "locationId": location_id,
-        "firstName": input.get("firstName", ""),
-        "lastName": input.get("lastName", ""),
-        "email": input.get("email", ""),
-        "phone": input.get("phone", ""),
-        "tags": input.get("tags", [])
-    }
+    payload = {"locationId": location_id, "firstName": firstName, "lastName": lastName, "email": email, "phone": phone}
+    if tags:
+        payload["tags"] = [t.strip() for t in tags.split(",")]
     r = requests.post(f"{GHL_BASE_URL}/contacts/", headers=ghl_headers(location_id), json=payload)
     return r.json()
 
 @mcp.tool()
-def get_pipelines(input: dict) -> dict:
-    """Get all pipelines in HighLevel"""
-    location_id = input.get("location_id")
+def get_pipelines(location_id: str) -> dict:
+    """Get all pipelines in a subaccount"""
     r = requests.get(f"{GHL_BASE_URL}/opportunities/pipelines", headers=ghl_headers(location_id), params={"locationId": location_id})
     return r.json()
 
 @mcp.tool()
-def get_opportunities(input: dict) -> dict:
+def get_opportunities(location_id: str) -> dict:
     """List pipeline opportunities"""
-    location_id = input.get("location_id")
     r = requests.get(f"{GHL_BASE_URL}/opportunities/search", headers=ghl_headers(location_id), params={"location_id": location_id})
     return r.json()
 
 @mcp.tool()
-def send_message(input: dict) -> dict:
+def send_message(location_id: str, contactId: str, message: str, type: str = "SMS") -> dict:
     """Send a message to a contact"""
-    location_id = input.get("location_id")
-    payload = {
-        "type": input.get("type", "SMS"),
-        "message": input.get("message", ""),
-        "contactId": input.get("contactId")
-    }
+    payload = {"type": type, "message": message, "contactId": contactId}
     r = requests.post(f"{GHL_BASE_URL}/conversations/messages", headers=ghl_headers(location_id), json=payload)
     return r.json()
 
 @mcp.tool()
-def get_workflows(input: dict) -> dict:
-    """Get all workflows in HighLevel"""
-    location_id = input.get("location_id")
+def get_workflows(location_id: str) -> dict:
+    """Get all workflows in a subaccount"""
     r = requests.get(f"{GHL_BASE_URL}/workflows/", headers=ghl_headers(location_id), params={"locationId": location_id})
     return r.json()
 
