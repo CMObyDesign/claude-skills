@@ -88,7 +88,7 @@ def get_workflows(input: dict) -> dict:
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     uvicorn.run(
-        mcp.http_app(path="/sse"),
+        mcp.sse_app(),
         host="0.0.0.0",
         port=port
     )
