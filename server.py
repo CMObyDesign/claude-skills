@@ -2,6 +2,7 @@
 """GHL MCP Server - Multi-location support with PIT tokens."""
 import os
 import requests
+import uvicorn
 from fastmcp import FastMCP
 
 mcp = FastMCP(name='HighLevel Agency MCP')
@@ -32,8 +33,7 @@ def get_locations(input: dict) -> dict:
 def get_contacts(input: dict) -> dict:
     """Search and list contacts in HighLevel"""
     location_id = input.get("location_id")
-    query = input.get("query", "")
-    params = {"locationId": location_id, "query": query}
+    params = {"locationId": location_id, "query": input.get("query", "")}
     r = requests.get(f"{GHL_BASE_URL}/contacts/", headers=ghl_headers(location_id), params=params)
     return r.json()
 
@@ -50,22 +50,6 @@ def create_contact(input: dict) -> dict:
         "tags": input.get("tags", [])
     }
     r = requests.post(f"{GHL_BASE_URL}/contacts/", headers=ghl_headers(location_id), json=payload)
-    return r.json()
-
-@mcp.tool()
-def get_contact(input: dict) -> dict:
-    """Get a single contact by ID"""
-    location_id = input.get("location_id")
-    contact_id = input.get("contactId")
-    r = requests.get(f"{GHL_BASE_URL}/contacts/{contact_id}", headers=ghl_headers(location_id))
-    return r.json()
-
-@mcp.tool()
-def update_contact(input: dict) -> dict:
-    """Update an existing contact"""
-    location_id = input.get("location_id")
-    contact_id = input.get("contactId")
-    r = requests.put(f"{GHL_BASE_URL}/contacts/{contact_id}", headers=ghl_headers(location_id), json=input)
     return r.json()
 
 @mcp.tool()
@@ -102,7 +86,9 @@ def get_workflows(input: dict) -> dict:
     return r.json()
 
 if __name__ == '__main__':
-    import uvicorn
-    app = mcp.get_asgi_app()
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
-# updated Tue Mar 31 02:40:20 AM UTC 2026
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(
+        mcp.http_app(path="/sse"),
+        host="0.0.0.0",
+        port=port
+    )
