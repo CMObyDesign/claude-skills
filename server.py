@@ -71,3 +71,24 @@ def get_workflows(location_id: str) -> dict:
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     mcp.run(transport="sse", host="0.0.0.0", port=port, path="/sse")
+
+@mcp.tool()
+def create_funnel_page(location_id: str, funnel_id: str, name: str, html: str) -> dict:
+    """Create or update a funnel page with custom HTML in HighLevel"""
+    payload = {"name": name, "html": html}
+    r = requests.post(
+        f"{GHL_BASE_URL}/funnels/{funnel_id}/pages",
+        headers=ghl_headers(location_id),
+        json=payload
+    )
+    return r.json()
+
+@mcp.tool()
+def get_funnels(location_id: str) -> dict:
+    """Get all funnels in a subaccount"""
+    r = requests.get(
+        f"{GHL_BASE_URL}/funnels/",
+        headers=ghl_headers(location_id),
+        params={"locationId": location_id}
+    )
+    return r.json()
