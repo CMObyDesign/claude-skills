@@ -148,8 +148,13 @@ def get_workflows(location_id: str) -> dict:
 @mcp.tool()
 def get_workflow(location_id: str, workflow_id: str) -> dict:
     """Get a single workflow by ID including name, status, version, triggers and actions"""
-    r = requests.get(f"{GHL_BASE_URL}/workflows/{workflow_id}", headers=ghl_headers(location_id), params={"locationId": location_id})
-    return r.json()
+    r = requests.get(f"{GHL_BASE_URL}/workflows/", headers=ghl_headers(location_id), params={"locationId": location_id})
+    data = r.json()
+    workflows = data.get("workflows", [])
+    for wf in workflows:
+        if wf.get("id") == workflow_id:
+            return wf
+    return {"error": "Workflow not found", "workflow_id": workflow_id}
 
 # ─── FUNNELS ─────────────────────────────────────────────
 @mcp.tool()
