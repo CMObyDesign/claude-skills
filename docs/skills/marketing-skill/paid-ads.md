@@ -8,7 +8,7 @@ description: "When the user wants help with paid advertising campaigns on Google
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `paid-ads`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -81,10 +81,10 @@ Account
 ```
 [Platform]_[Objective]_[Audience]_[Offer]_[Date]
 
-Examples:
-META_Conv_Lookalike-Customers_FreeTrial_2024Q1
+Examples (use the current year/quarter — {YYYY}/{Qn} are placeholders):
+META_Conv_Lookalike-Customers_FreeTrial_{YYYY}Q1
 GOOG_Search_Brand_Demo_Ongoing
-LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
+LI_LeadGen_CMOs-SaaS_Whitepaper_{MonYY}
 ```
 
 ### Budget Allocation
@@ -113,7 +113,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 **Social Proof Lead:**
 > [Impressive stat or testimonial] → [What you do] → [CTA]
 
-**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/references/ad-copy-templates.md)
+**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/ad-copy-templates.md)
 
 ---
 
@@ -133,7 +133,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 - **Retargeting**: Segment by funnel stage (visitors vs. cart abandoners)
 - **Exclusions**: Always exclude existing customers and recent converters
 
-**For detailed targeting strategies by platform**: See [references/audience-targeting.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/references/audience-targeting.md)
+**For detailed targeting strategies by platform**: See [references/audience-targeting.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/audience-targeting.md)
 
 ---
 
@@ -232,9 +232,19 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 
 ## Reporting & Analysis
 
+### Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| ROAS calculator | `python3 scripts/roas_calculator.py --spend 5000 --revenue 18000 --conversions 120 --clicks 2400 --margin 0.7` (or `--file metrics.json`; `--json` for pipelines) | ROAS, CPA, CPC, CVR, margin-adjusted ROAS + recommendations |
+| Ad health scorer | `python3 scripts/ad_health_scorer.py --checks checks.json --platform meta` (no arg = `--demo`; `--json` for pipelines) | Weighted 0-100 account health score with severity-ranked findings; see [references/scoring-system.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/scoring-system.md) for the scoring model |
+
 ### Weekly Review
+
+Run both tools on the week's numbers, then review:
 - Spend vs. budget pacing
-- CPA/ROAS vs. targets
+- CPA/ROAS vs. targets — from `roas_calculator.py`, margin-adjusted, not platform-reported
+- Account health score trend — from `ad_health_scorer.py`; investigate any category that dropped
 - Top and bottom performing ads
 - Audience performance breakdown
 - Frequency check (fatigue risk)
@@ -252,7 +262,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 
 Before launching campaigns, ensure proper tracking and account setup.
 
-**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/references/platform-setup-checklists.md)
+**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/platform-setup-checklists.md)
 
 ### Universal Pre-Launch Checklist
 - [ ] Conversion tracking tested with real conversion
@@ -302,16 +312,16 @@ Before launching campaigns, ensure proper tracking and account setup.
 
 ## Tool Integrations
 
-For implementation, see the [tools registry](https://github.com/alirezarezvani/claude-skills/tree/main/tools/REGISTRY.md). Key advertising platforms:
+Key advertising platforms:
 
-| Platform | Best For | MCP | Guide |
-|----------|----------|:---:|-------|
-| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/google-ads.md) |
-| **Meta Ads** | Demand gen, visual products, B2C | - | [meta-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/meta-ads.md) |
-| **LinkedIn Ads** | B2B, job title targeting | - | [linkedin-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/linkedin-ads.md) |
-| **TikTok Ads** | Younger demographics, video | - | [tiktok-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/tiktok-ads.md) |
+| Platform | Best For | MCP |
+|----------|----------|:---:|
+| **Google Ads** | Search intent, high-intent traffic | ✓ |
+| **Meta Ads** | Demand gen, visual products, B2C | - |
+| **LinkedIn Ads** | B2B, job title targeting | - |
+| **TikTok Ads** | Younger demographics, video | - |
 
-For tracking, see also: [ga4.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/ga4.md), [segment.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/segment.md)
+For tracking and attribution, pair these with GA4 and Segment.
 
 ---
 

@@ -8,7 +8,7 @@ description: "When the user wants to optimize signup, registration, account crea
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `signup-flow-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/signup-flow-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/signup-flow-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -47,6 +47,14 @@ Before providing recommendations, understand:
 
 ## Core Principles
 → See references/signup-cro-playbook.md for details
+
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Funnel drop analyzer | `python3 scripts/funnel_drop_analyzer.py --steps funnel.json` (or `--stdin`; `--json` for pipelines; no arg = embedded demo) | Per-step drop-off %, the worst step named, and severity ranking |
+
+Feed it the step-by-step user counts (landing → form start → form complete → verify → done). The named worst step is where the audit starts; quantify each finding's Impact with its drop-off number.
 
 ## Output Format
 

@@ -8,7 +8,7 @@ description: "Product leadership for scaling companies. Product vision, portfoli
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `cpo-advisor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cpo-advisor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cpo-advisor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -188,7 +188,7 @@ Decompose to fundamental user needs. Question every assumption about what custom
 
 ## Communication
 
-All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+All output passes the Internal Quality Loop before reaching the founder (see [`agent-protocol/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/agent-protocol/SKILL.md)).
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

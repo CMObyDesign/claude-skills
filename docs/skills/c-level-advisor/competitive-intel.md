@@ -8,7 +8,7 @@ description: "Systematic competitor tracking that feeds CMO positioning, CRO bat
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `competitive-intel`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/competitive-intel/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/competitive-intel/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -23,13 +23,13 @@ competitive intelligence, competitor analysis, battlecard, win/loss analysis, co
 
 ## Quick Start
 
-```
-/ci:landscape         — Map your competitive space (direct, indirect, future)
-/ci:battlecard [name] — Build a sales battlecard for a specific competitor
-/ci:winloss           — Analyze recent wins and losses by reason
-/ci:update [name]     — Track what a competitor did recently
-/ci:map               — Build competitive positioning map
-```
+Ask in natural language for the deliverable you need:
+
+> "Map our competitive landscape" — direct, indirect, and future competitors
+> "Build a battlecard for [competitor]" — sales-ready battlecard
+> "Run a win/loss analysis" — recent wins and losses by reason
+> "What did [competitor] do recently?" — competitor update tracking
+> "Build a competitive positioning map" — 2x2 positioning map
 
 ## Framework: 5-Layer Intelligence System
 

@@ -1,6 +1,6 @@
 ---
 title: "API Test Suite Builder — Agent Skill for Codex & OpenClaw"
-description: "API Test Suite Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # API Test Suite Builder
@@ -8,7 +8,7 @@ description: "API Test Suite Builder. Agent skill for Claude Code, Codex CLI, Ge
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `api-test-suite-builder`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/api-test-suite-builder/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/api-test-suite-builder/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

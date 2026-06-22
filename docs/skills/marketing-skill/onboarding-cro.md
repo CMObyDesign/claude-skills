@@ -8,7 +8,7 @@ description: "When the user wants to optimize post-signup onboarding, user activ
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `onboarding-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/onboarding-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -169,14 +169,20 @@ Signup → Step 1 → Step 2 → Activation → Retention
 100%      80%       60%       40%         25%
 ```
 
-Identify biggest drops and focus there.
+Run the bundled analyzer on your step counts instead of eyeballing:
+
+```bash
+python3 scripts/activation_funnel_analyzer.py funnel.json --json   # no arg = embedded demo
+```
+
+It computes per-step drop-off, an activation score 0-100, and names the biggest-loss step. That step is where the audit focuses first.
 
 ---
 
 ## Output Format
 
 ### Onboarding Audit
-For each issue: Finding → Impact → Recommendation → Priority
+Lead with the analyzer's output: activation score + the named biggest-drop step. Then, for each issue: Finding → Impact → Recommendation → Priority
 
 ### Onboarding Flow Design
 - Activation goal
@@ -206,8 +212,6 @@ When recommending experiments, consider tests for:
 - Progress and motivation mechanics
 - Personalization by role or goal
 - Support and help availability
-
-**For comprehensive experiment ideas**: See [references/experiments.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/references/experiments.md)
 
 ---
 

@@ -1,6 +1,6 @@
 # Installation Guide - Claude Skills Library
 
-Complete installation guide for all 170 production-ready skills across multiple AI agents and platforms.
+Complete installation guide for all 205+ production-ready skills across multiple AI agents and platforms.
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@ Complete installation guide for all 170 production-ready skills across multiple 
 - [Universal Installer](#universal-installer)
 - [OpenAI Codex Installation](#openai-codex-installation)
 - [Gemini CLI Installation](#gemini-cli-installation)
+- [Mistral Vibe Installation](#mistral-vibe-installation)
 - [OpenClaw Installation](#openclaw-installation)
 - [Per-Skill Installation](#per-skill-installation)
 - [Multi-Agent Setup](#multi-agent-setup)
@@ -56,6 +57,17 @@ cd claude-skills
 
 Skills install to `.gemini/skills/` and are activated via `activate_skill(name="skill-name")`.
 
+### For Mistral Vibe Users
+
+```bash
+# Setup script for Mistral Vibe
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/vibe-install.sh
+```
+
+Skills install to `~/.vibe/skills/claude-skills/` (symlinked) and are discovered automatically by Vibe via the standard `SKILL.md` + YAML frontmatter contract. See [Mistral Vibe Installation](#mistral-vibe-installation) for details.
+
 Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
 
 ### For OpenClaw Users
@@ -80,7 +92,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills
 This single command installs all skills to all supported agents automatically.
 
 **What this does:**
-- ✅ Detects all 170 skills automatically
+- ✅ Detects all 205+ skills automatically
 - ✅ Installs to Claude, Cursor, Copilot, Windsurf, Cline, and 37+ other AI agents
 - ✅ Works across all skill formats
 
@@ -113,7 +125,7 @@ This adds the skills library to your available marketplaces.
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
 /plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
 /plugin install business-growth-skills@claude-code-skills  # 4 business & growth skills
-/plugin install finance-skills@claude-code-skills       # 1 finance skill
+/plugin install finance-skills@claude-code-skills       # 2 finance skills
 ```
 
 ### Install Individual Skills
@@ -268,22 +280,22 @@ npx agent-skills-cli add alirezarezvani/claude-skills/product-team/ui-design-sys
 
 ```bash
 # Senior PM Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/senior-pm-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/senior-pm
 
 # Scrum Master Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/scrum-master-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/scrum-master
 
 # Atlassian Jira Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-jira-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/jira-expert
 
 # Atlassian Confluence Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-confluence-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/confluence-expert
 
 # Atlassian Administrator
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-administrator
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-admin
 
 # Atlassian Template Creator
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-template-creator
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-templates
 ```
 
 ### Engineering Team Skills
@@ -436,16 +448,16 @@ cp -r engineering-team .github/skills/
 
 ```bash
 # Test marketing tools
-python marketing-skill/content-creator/scripts/brand_voice_analyzer.py --help
-python marketing-skill/content-creator/scripts/seo_optimizer.py --help
+python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py --help
+python3 marketing-skill/content-production/scripts/seo_optimizer.py --help
 
 # Test C-level tools
-python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py --help
-python c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py --help
+python3 c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py --help
+python3 c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py --help
 
 # Test product tools
-python product-team/product-manager-toolkit/scripts/rice_prioritizer.py --help
-python product-team/ui-design-system/scripts/design_token_generator.py --help
+python3 product-team/product-manager-toolkit/scripts/rice_prioritizer.py --help
+python3 product-team/ui-design-system/scripts/design_token_generator.py --help
 ```
 
 ---
@@ -496,10 +508,10 @@ ls ~/.config/goose/skills/
 echo "Sample content for analysis" > test-article.txt
 
 # Run brand voice analysis
-python ~/.claude/skills/content-creator/scripts/brand_voice_analyzer.py test-article.txt
+python3 ~/.claude/skills/content-production/scripts/brand_voice_analyzer.py test-article.txt
 
 # Run SEO optimization
-python ~/.claude/skills/content-creator/scripts/seo_optimizer.py test-article.txt "sample keyword"
+python3 ~/.claude/skills/content-production/scripts/seo_optimizer.py test-article.txt "sample keyword"
 ```
 
 ---
@@ -674,7 +686,7 @@ rm -rf .cursor/skills/fullstack-engineer/
 
 ## Gemini CLI Installation
 
-Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 170+ skills, agents, and commands.
+Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 205+ skills, agents, and commands.
 
 ### Setup Instructions
 
@@ -696,7 +708,7 @@ Gemini CLI users can install skills using the setup script below. This repositor
     - Generates a `skills-index.json` manifest for discovery.
 
 3.  **Activate Skills in Gemini CLI:**
-    Gemini CLI can now activate any of these 170+ skills by name. Use the `activate_skill` tool:
+    Gemini CLI can now activate any of these 205+ skills by name. Use the `activate_skill` tool:
     ```javascript
     // Activate a core skill
     activate_skill(name="senior-architect")
@@ -721,6 +733,99 @@ Every skill includes deterministic Python CLI tools in its `scripts/` folder. Th
 Example:
 ```bash
 python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
+```
+
+---
+
+## Mistral Vibe Installation
+
+[Mistral Vibe](https://github.com/mistralai/mistral-vibe) is Mistral AI's open-source CLI coding agent (Apache-2.0). It uses the same [`SKILL.md` + YAML frontmatter](https://docs.mistral.ai/mistral-vibe/agents-skills) standard as Claude Code and Hermes, so this repo installs into Vibe with **zero format conversion** — just symlinks.
+
+Vibe discovers skills from three paths (per the [official docs](https://docs.mistral.ai/mistral-vibe/agents-skills)):
+
+- `~/.vibe/skills/` — user-global (what this script writes to)
+- `.vibe/skills/` — project-local
+- `.agents/skills/` — Agent Skills standard path
+
+### Setup Instructions
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ```
+
+2.  **Run the Vibe setup script:**
+    ```bash
+    ./scripts/vibe-install.sh
+    ```
+    This installs all skills as symlinks under `~/.vibe/skills/claude-skills/<domain>/<skill-name>/`, namespaced to avoid collisions with Vibe built-ins. It also writes a `skills-index.json` manifest for discovery.
+
+3.  **Use skills in Vibe:**
+    ```text
+    > /skills                    # list all installed skills
+    > /senior-architect          # invoke a skill by slug
+    > review my API design       # auto-loads matching skills via SKILL.md description
+    ```
+
+### Direct Python invocation
+
+For finer-grained control (one domain at a time, copy instead of symlink, JSON output for tooling):
+
+```bash
+# Preview without writing
+python3 scripts/sync-vibe-skills.py --dry-run --verbose
+
+# Sync only one domain
+python3 scripts/sync-vibe-skills.py --domain engineering
+
+# Copy (instead of symlink) — useful for portable installs
+python3 scripts/sync-vibe-skills.py --copy
+
+# JSON output (for CI / scripting)
+python3 scripts/sync-vibe-skills.py --json
+
+# Custom target (instead of ~/.vibe/skills/)
+python3 scripts/sync-vibe-skills.py --target /opt/team-vibe/skills/
+```
+
+### What gets installed
+
+| Layout | Path | Count |
+|--------|------|-------|
+| Skill folders (symlinked) | `~/.vibe/skills/claude-skills/<domain>/<skill>/` | 306 |
+| Domain directories | `~/.vibe/skills/claude-skills/<domain>/` | 14 |
+| Index manifest | `~/.vibe/skills/claude-skills/skills-index.json` | 1 |
+
+A pre-generated copy of the same tree is also committed at `.vibe/skills/claude-skills/` in this repo for reference and for users who want to inspect what will land before running the installer.
+
+### Verify Installation
+
+```bash
+# Count installed skills
+ls ~/.vibe/skills/claude-skills/*/ | wc -l
+
+# Inspect the manifest
+cat ~/.vibe/skills/claude-skills/skills-index.json | python3 -m json.tool | head -20
+
+# Verify a skill's frontmatter resolved correctly through the symlink
+head -10 ~/.vibe/skills/claude-skills/engineering/senior-architect/SKILL.md
+```
+
+### Uninstall
+
+```bash
+rm -rf ~/.vibe/skills/claude-skills/
+```
+
+The namespaced subdirectory means uninstalling never touches Vibe's built-in skills or any skills you installed from other sources.
+
+### Python CLI Tools
+
+Every skill includes deterministic Python CLI tools in its `scripts/` folder. These use the standard library only and run anywhere Python runs — Vibe can invoke them via its shell tool, or you can run them directly:
+
+```bash
+python3 ~/.vibe/skills/claude-skills/marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
 ```
 
 ---
@@ -792,7 +897,7 @@ head -20 ~/.openclaw/skills/senior-frontend/SKILL.md
 | Project Management | `project-management/` | 6 |
 | RA/QM Compliance | `ra-qm-team/` | 12 |
 | Business & Growth | `business-growth/` | 4 |
-| Finance | `finance/` | 1 |
+| Finance | `finance/` | 2 |
 
 ### Python Tools
 
@@ -830,7 +935,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
 
 # Generate symlinks (if not already present)
-python scripts/sync-codex-skills.py
+python3 scripts/sync-codex-skills.py
 
 # Install all skills to ~/.codex/skills/
 ./scripts/codex-install.sh
@@ -903,7 +1008,7 @@ ls ~/.codex/skills/ | wc -l
 | **project-management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
 | **business-growth** | 4 | customer-success-manager, sales-engineer, revenue-operations |
-| **finance** | 1 | financial-analyst |
+| **finance** | 2 | financial-analyst, saas-metrics-coach |
 
 See `.codex/skills-index.json` for the complete manifest with descriptions.
 
@@ -923,6 +1028,7 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
 | **OpenClaw** | `~/.openclaw/skills/` | `clawhub install` | YAML frontmatter triggers |
 | **Gemini CLI** | `.gemini/skills/` | `gemini-install.sh` | Symlink-based discovery |
+| **Mistral Vibe** | `~/.vibe/skills/` | `vibe-install.sh` | Same `SKILL.md` standard, no conversion |
 | **Project** | `.skills/` | `--agent project` | Portable, project-specific |
 
 ---
@@ -944,5 +1050,5 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 ---
 
 **Last Updated:** March 2026
-**Skills Version:** 2.1.1 (170 production skills across 9 domains)
+**Skills Version:** 2.1.2 (205+ production skills across 9 domains)
 **Universal Installer:** [Agent Skills CLI](https://github.com/Karanjot786/agent-skills-cli)

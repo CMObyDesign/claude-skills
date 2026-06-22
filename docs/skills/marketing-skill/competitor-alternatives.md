@@ -8,7 +8,7 @@ description: "When the user wants to create competitor comparison or alternative
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `competitor-alternatives`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/competitor-alternatives/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -173,7 +173,7 @@ Be explicit about ideal customer for each option. Honest recommendations build t
 ### Migration Section
 Cover what transfers, what needs reconfiguration, support offered, and quotes from customers who switched.
 
-**For detailed templates**: See [references/templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/references/templates.md)
+**For detailed templates**: See [references/templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/competitor-alternatives/references/templates.md)
 
 ---
 
@@ -189,7 +189,7 @@ Create a single source of truth for each competitor with:
 - Common complaints (from reviews)
 - Migration notes
 
-**For data structure and examples**: See [references/content-architecture.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/references/content-architecture.md)
+**For data structure and examples**: See [references/content-architecture.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/competitor-alternatives/references/content-architecture.md)
 
 ---
 
@@ -265,6 +265,16 @@ Proactively offer competitor page creation when:
 3. **SEO gap identified** — Keyword research shows competitor-branded terms with no coverage; propose a full alternative page set with prioritized build order.
 4. **Switcher testimonial available** — When a customer quote about switching surfaces, offer to build a migration-focused alternative page around it.
 5. **Pricing page review** — When reviewing pricing, note that pricing comparison tables belong on dedicated competitor pages, not the pricing page itself.
+
+---
+
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Comparison matrix builder | `python3 scripts/comparison_matrix_builder.py --input competitors.json --markdown` (no input = embedded demo; `--json` for pipelines) | Feature-by-feature comparison matrix ready to paste into the vs-page comparison table |
+
+Feed it the Competitor Intelligence File data (features + pricing per competitor); its markdown output is the canonical comparison table for every Vs Page below — don't hand-build the table.
 
 ---
 

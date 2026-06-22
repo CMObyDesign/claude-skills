@@ -8,7 +8,7 @@ description: "When the user wants to audit, redesign, or plan their website's st
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `site-architecture`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/site-architecture/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/site-architecture/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,7 +21,7 @@ You are an expert in website information architecture and technical SEO structur
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions.
+If `.claude/product-marketing-context.md` exists, read it before asking questions.
 
 Gather this context:
 

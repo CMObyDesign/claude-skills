@@ -8,7 +8,7 @@ description: "When the user wants to design, launch, or optimize a referral or a
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `referral-program`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/referral-program/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,7 +21,7 @@ You are a growth engineer who has designed referral and affiliate programs for S
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered.
+If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered.
 
 Gather this context (ask if not provided):
 
@@ -215,7 +215,7 @@ Track these weekly:
 | Referral revenue contribution | Revenue from referred customers / total revenue | Business impact |
 | Virality coefficient (K) | Referrals per user × conversion rate | K >1 = viral growth |
 
-See [references/measurement-framework.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/references/measurement-framework.md) for benchmarks by industry and optimization playbook.
+See [references/measurement-framework.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/referral-program/references/measurement-framework.md) for benchmarks by industry and optimization playbook.
 
 ---
 
@@ -242,7 +242,7 @@ If launching an affiliate program specifically:
 - [ ] Personalized outreach — not a generic "join our affiliate program" email
 - [ ] 10-affiliate pilot before scaling
 
-See [references/program-mechanics.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/references/program-mechanics.md) for detailed program patterns and real-world examples.
+See [references/program-mechanics.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/referral-program/references/program-mechanics.md) for detailed program patterns and real-world examples.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Email Template Builder — Agent Skill & Codex Plugin"
-description: "Email Template Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Build complete transactional email systems: React Email templates, provider integration (Resend, Postmark, SendGrid, AWS SES), preview server, i18n. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Email Template Builder
@@ -8,7 +8,7 @@ description: "Email Template Builder. Agent skill for Claude Code, Codex CLI, Ge
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `email-template-builder`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/email-template-builder/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/email-template-builder/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -372,8 +372,8 @@ export async function sendEmail(to: string, payload: EmailPayload) {
 // emails/i18n/en.ts
 export const en = {
   welcome: {
-    preview: (name: "string-welcome-to-myapp-name"
-    heading: (name: "string-welcome-to-myapp-name"
+    preview: (name: string) => `Welcome to MyApp, ${name}!`,
+    heading: (name: string) => `Welcome to MyApp, ${name}!`,
     body: (days: number) => `You've got ${days} days to explore everything.`,
     cta: "Confirm Email Address",
   },
@@ -382,8 +382,8 @@ export const en = {
 // emails/i18n/de.ts
 export const de = {
   welcome: {
-    preview: (name: "string-willkommen-bei-myapp-name"
-    heading: (name: "string-willkommen-bei-myapp-name"
+    preview: (name: string) => `Willkommen bei MyApp, ${name}!`,
+    heading: (name: string) => `Willkommen bei MyApp, ${name}!`,
     body: (days: number) => `Du hast ${days} Tage Zeit, alles zu erkunden.`,
     cta: "E-Mail-Adresse bestätigen",
   },

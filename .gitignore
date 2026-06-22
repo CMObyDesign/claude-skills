@@ -23,8 +23,8 @@ v1-10-2025-medium-content-pro.zip
 # Project-specific exclusions
 AGENTS.md
 PROMPTS.md
-medium-content-pro/*
-medium-content-pro 2/*
+medium-content-pro/
+medium-content-pro 2/
 documentation/GIST_CONTENT.md
 documentation/implementation/*__pycache__/
 ARTICLE-FEEDBACK-AND-OPTIMIZED-VERSION.md
@@ -43,3 +43,23 @@ site/
 .playwright-mcp/
 # Generated integration files (regenerate with ./scripts/convert.sh)
 integrations/
+documentation/implementation/craighewitt-mattpocock-reimplementation-plan.md
+medium/
+
+# === Internal dev artifacts (maintainer-only — hidden from cloners) ===
+# Sprint plans, strategy docs, implementation roadmaps, audits
+documentation/
+
+# Tessl evaluation outputs (includes anthropic-skill-creator third-party clone
+# and per-version trigger-eval workspaces, e.g. eval-workspace/v2.8.0-trigger-eval/)
+eval-workspace/
+
+# Pre-skill draft specs (Path-B source material)
+megaprompts/
+
+# Pytest suite (maintainer quality gate; not user-consumable)
+tests/
+
+# Autoresearch agent workspace
+.autoresearch/
+.idea/

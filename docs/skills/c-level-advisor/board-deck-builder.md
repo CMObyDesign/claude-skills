@@ -8,7 +8,7 @@ description: "Assembles comprehensive board and investor update decks by pulling
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `board-deck-builder`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/board-deck-builder/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/board-deck-builder/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -23,9 +23,10 @@ board deck, investor update, board meeting, board pack, investor relations, quar
 
 ## Quick Start
 
-```
-/board-deck [quarterly|monthly|fundraising] [stage: seed|seriesA|seriesB]
-```
+Ask for a board deck in natural language, naming cadence and stage:
+
+> "Build a quarterly board deck — we're Series A."
+> "Draft a fundraising board deck for a seed-stage company."
 
 Provide available metrics. The builder fills gaps with explicit placeholders — never invents numbers.
 

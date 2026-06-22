@@ -8,7 +8,7 @@ description: "When the user wants to edit, review, or improve existing marketing
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `copy-editing`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copy-editing/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/copy-editing/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -55,10 +55,11 @@ Edit copy through seven sequential passes, each focusing on one dimension. After
 - Burying the point in qualifications
 
 **Process:**
-1. Read through quickly, highlighting unclear parts
-2. Don't correct yet—just note problem areas
-3. After marking issues, recommend specific edits
-4. Verify edits maintain the original intent
+1. Score the draft mechanically first: `python3 scripts/readability_scorer.py --file draft.md` (Flesch score, passive-voice %, filler-word count; add `--json` for pipelines). Anything it flags is your starting highlight list.
+2. Read through quickly, highlighting unclear parts the scorer can't see
+3. Don't correct yet—just note problem areas
+4. After marking issues, recommend specific edits
+5. Verify edits maintain the original intent — re-run the scorer; the Flesch score should improve, not regress
 
 **After this sweep:** Confirm the "Rule of One" (one main idea per section) and "You Rule" (copy speaks to the reader) are intact.
 
@@ -269,6 +270,16 @@ For every statement, ask "Okay, so what?" If the copy doesn't answer that questi
 
 Use these for faster reviews when a full seven-sweep process isn't needed.
 
+### AI-Pattern Check
+
+If the draft may be AI-generated (or AI-assisted), run the detector before editing:
+
+```bash
+python3 scripts/ai_content_detector.py draft.md --json   # no arg = --demo mode
+```
+
+It scores burstiness, vocabulary diversity, and stock-phrase density. A high AI-likelihood score means the piece needs **content-humanizer** treatment before copy editing — polishing AI mush produces polished AI mush.
+
 ### Word-Level Checks
 
 **Cut these words:**
@@ -424,7 +435,7 @@ This iterative process ensures each edit doesn't create new problems while respe
 
 ## References
 
-- [Plain English Alternatives](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copy-editing/references/plain-english-alternatives.md): Replace complex words with simpler alternatives
+- [Plain English Alternatives](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/copy-editing/references/plain-english-alternatives.md): Replace complex words with simpler alternatives
 
 ---
 

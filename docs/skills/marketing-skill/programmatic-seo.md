@@ -8,7 +8,7 @@ description: "When the user wants to create SEO-driven pages at scale using temp
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `programmatic-seo`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/programmatic-seo/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/programmatic-seo/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -93,8 +93,6 @@ Better to have 100 great pages than 10,000 thin ones.
 | Directory | "[category] tools" | "ai copywriting tools" |
 | Profiles | "[entity name]" | "stripe ceo" |
 
-**For detailed playbook implementation**: See [references/playbooks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/programmatic-seo/references/playbooks.md)
-
 ---
 
 ## Choosing Your Playbook
@@ -135,7 +133,17 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 - Is it first-party, scraped, licensed, public?
 - How is it updated?
 
-### 3. Template Design
+### 3. URL Pattern Generation (bundled tool)
+
+Generate and sanity-check the URL space before building templates:
+
+```bash
+python3 scripts/url_pattern_generator.py pattern.json --json   # no arg = embedded demo
+```
+
+Give it the template (e.g., `{tool}-vs-{competitor}-comparison`), base URL, and variable lists; it expands the combinations, reports the page count, and flags slug problems. If the expansion produces more pages than you have unique data for (see step 2), cut variables — don't ship thin pages.
+
+### 4. Template Design
 
 **Page structure:**
 - Header with target keyword
@@ -149,7 +157,7 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 - Conditional content based on data
 - Original insights/analysis per page
 
-### 4. Internal Linking Architecture
+### 5. Internal Linking Architecture
 
 **Hub and spoke model:**
 - Hub: Main category page
@@ -161,7 +169,7 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 - XML sitemap for all pages
 - Breadcrumbs with structured data
 
-### 5. Indexation Strategy
+### 6. Indexation Strategy
 
 - Prioritize high-volume patterns
 - Noindex very thin variations

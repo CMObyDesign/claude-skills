@@ -1,6 +1,6 @@
 # Engineering Team Skills - Claude Code Guidance
 
-This guide covers the 26 production-ready engineering skills and their Python automation tools.
+This guide covers the 32 production-ready engineering skills and their Python automation tools.
 
 ## Engineering Skills Overview
 
@@ -10,12 +10,24 @@ This guide covers the 26 production-ready engineering skills and their Python au
 - code-reviewer, senior-security
 - aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator, epic-design
 - **a11y-audit** — WCAG 2.2 accessibility audit and fix (a11y_scanner.py, contrast_checker.py)
+- **azure-cloud-architect** — Azure infrastructure design, ARM/Bicep templates, landing zones
+- **gcp-cloud-architect** — GCP infrastructure design, Terraform modules, cloud-native patterns
+- **security-pen-testing** — Penetration testing methodology, vulnerability assessment, exploit analysis
+- **snowflake-development** — Snowflake data warehouse development, SQL optimization, data pipeline patterns
+
+**Security (5 skills):**
+- **adversarial-reviewer** — Adversarial code review with 3 hostile personas (Saboteur, New Hire, Security Auditor)
+- **threat-detection** — Hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection
+- **incident-response** — SEV1-SEV4 triage, 14-type incident taxonomy, NIST SP 800-61 forensics
+- **cloud-security** — IAM privilege escalation paths, S3 public access checks, security group detection
+- **red-team** — MITRE ATT&CK kill-chain planning, effort scoring, choke point identification
+- **ai-security** — ATLAS-mapped prompt injection detection, model inversion & data poisoning risk scoring
 
 **AI/ML/Data (5 skills):**
 - senior-data-scientist, senior-data-engineer, senior-ml-engineer
 - senior-prompt-engineer, senior-computer-vision
 
-**Total Tools:** 34+ Python automation tools
+**Total Tools:** 39+ Python automation tools
 
 ## Core Engineering Tools
 
@@ -288,8 +300,8 @@ services:
 
 ---
 
-**Last Updated:** March 18, 2026
-**Skills Deployed:** 26 engineering skills production-ready
+**Last Updated:** May 10, 2026
+**Skills Deployed:** 32 engineering skills production-ready
 **Total Tools:** 39+ Python automation tools across core + AI/ML/Data + epic-design + a11y
 
 ---

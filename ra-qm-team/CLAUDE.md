@@ -1,6 +1,6 @@
 # Regulatory Affairs & Quality Management Skills - Claude Code Guidance
 
-This guide covers the 12 production-ready RA/QM compliance skills for HealthTech/MedTech companies.
+This guide covers the 14 production-ready RA/QM compliance skills for HealthTech/MedTech companies.
 
 ## RA/QM Skills Overview
 
@@ -21,12 +21,13 @@ This guide covers the 12 production-ready RA/QM compliance skills for HealthTech
 - mdr-745-specialist - EU MDR 2017/745 compliance, technical documentation
 - fda-consultant-specialist - FDA 510(k), PMA, QSR compliance
 
-**Audit & Compliance (3 skills):**
+**Audit & Compliance (4 skills):**
 - qms-audit-expert - Internal audits, ISO 13485 certification
 - isms-audit-expert - ISO 27001 audits, security assessments
 - gdpr-dsgvo-expert - GDPR/DSGVO compliance, data privacy
+- soc2-compliance - SOC 2 Type I/II compliance, trust service criteria, audit readiness
 
-**Total:** 12 specialized compliance skills for medical device industry
+**Total:** 14 specialized compliance skills for medical device industry
 
 ## Compliance Frameworks
 
@@ -148,6 +149,6 @@ This guide covers the 12 production-ready RA/QM compliance skills for HealthTech
 
 ---
 
-**Last Updated:** November 5, 2025
-**Skills Deployed:** 12/12 RA/QM skills production-ready
+**Last Updated:** May 10, 2026
+**Skills Deployed:** 14/14 RA/QM skills production-ready
 **Focus:** Medical device compliance (ISO 13485, MDR, FDA, ISO 27001, GDPR)

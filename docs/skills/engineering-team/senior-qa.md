@@ -8,7 +8,7 @@ description: "Generates unit tests, integration tests, and E2E tests for React/N
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `senior-qa`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-qa/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-qa/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -131,7 +131,7 @@ import { Button } from '../src/components/Button';
 describe('Button', () => {
   it('renders with label', () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole('button', { name: "click-mei-tobeinthedocument"
+    expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();
   });
 
   it('calls onClick when clicked', () => {
@@ -252,7 +252,7 @@ npx playwright show-report
 
 ```typescript
 // Preferred (accessible)
-screen.getByRole('button', { name: "submiti"
+screen.getByRole('button', { name: /submit/i })
 screen.getByLabelText(/email/i)
 screen.getByPlaceholderText(/search/i)
 

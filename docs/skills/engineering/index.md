@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "43 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "74 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">43 skills in this domain</p>
+<p class="domain-count">74 skills in this domain</p>
 
 </div>
 
@@ -17,23 +17,17 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
 
 <div class="grid cards" markdown>
 
--   **[Agent Designer - Multi-Agent System Architecture](agent-designer.md)**
+-   **[Agent Designer — Multi-Agent System Architecture](agent-designer.md)**
 
     ---
 
-    Tier: POWERFUL
+    Design, schema-generate, and evaluate multi-agent systems with three deterministic tools. The scripts are the workflo...
 
 -   **[Agent Workflow Designer](agent-workflow-designer.md)**
 
     ---
 
     Tier: POWERFUL
-
--   **[AgentHub — Multi-Agent Collaboration](agenthub.md)** + 7 sub-skills
-
-    ---
-
-    Spawn N parallel AI agents that compete on the same task. Each agent works in an isolated git worktree. The coordinat...
 
 -   **[API Design Reviewer](api-design-reviewer.md)**
 
@@ -47,17 +41,23 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Autoresearch Agent](autoresearch-agent.md)** + 5 sub-skills
+-   **[Browser Automation - POWERFUL](browser-automation.md)**
 
     ---
 
-    > You sleep. The agent experiments. You wake up to results.
+    The Browser Automation skill provides comprehensive tools and knowledge for building production-grade web automation ...
 
 -   **[Changelog Generator](changelog-generator.md)**
 
     ---
 
     Tier: POWERFUL
+
+-   **[Chaos Engineering](chaos-engineering.md)**
+
+    ---
+
+    Design experiments that surface real weaknesses in production systems — without becoming outages. Most "chaos enginee...
 
 -   **[CI/CD Pipeline Builder](ci-cd-pipeline-builder.md)**
 
@@ -87,19 +87,13 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
 
     ---
 
-    > Skill Type: POWERFUL
+    > Skill Type: POWERFUL · Category: Engineering · Domain: Dependency Management & Security
 
--   **[Docker Development](docker-development.md)**
-
-    ---
-
-    > Smaller images. Faster builds. Secure containers. No guesswork.
-
--   **[Engineering Advanced Skills (POWERFUL Tier)](engineering.md)**
+-   **[Engineering Advanced Skills (POWERFUL Tier)](engineering-advanced-skills.md)**
 
     ---
 
-    25 advanced engineering skills for complex architecture, automation, and platform operations.
+    37 advanced engineering skills for complex architecture, automation, reliability, and platform operations.
 
 -   **[Env & Secrets Manager](env-secrets-manager.md)**
 
@@ -107,23 +101,41 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
+-   **[Feature Flags Architect](feature-flags-architect.md)**
+
+    ---
+
+    End-to-end discipline for feature flags: classify them, ship them, ramp them, and retire them. Most teams treat flags...
+
+-   **[Focused Fix — Deep-Dive Feature Repair](focused-fix.md)**
+
+    ---
+
+    Activate when the user asks to fix, debug, or make a specific feature/module/area work. Key triggers:
+
+-   **[Full Page Screenshot](full-page-screenshot.md)**
+
+    ---
+
+    Capture a full-page screenshot of any web page via Chrome DevTools Protocol. Produces a single PNG that includes all ...
+
 -   **[Git Worktree Manager](git-worktree-manager.md)**
 
     ---
 
     Tier: POWERFUL
 
--   **[Helm Chart Builder](helm-chart-builder.md)**
-
-    ---
-
-    > Production-grade Helm charts. Sensible defaults. Secure by design. No cargo-culting.
-
 -   **[Interview System Designer](interview-system-designer.md)**
 
     ---
 
     Comprehensive interview loop planning and calibration support for role-based hiring systems.
+
+-   **[Kubernetes Operator](kubernetes-operator.md)**
+
+    ---
+
+    Build operators that reconcile correctly. Most operator bugs are not Kubernetes bugs — they are reconcile-loop bugs: ...
 
 -   **[MCP Server Builder](mcp-server-builder.md)**
 
@@ -161,23 +173,35 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[RAG Architect - POWERFUL](rag-architect.md)**
+-   **[RAG Architect](rag-architect.md)**
 
     ---
 
-    The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, im...
-
--   **[Release Manager](release-manager.md)**
-
-    ---
-
-    Tier: POWERFUL
+    Design, tune, and evaluate production RAG pipelines with three deterministic tools. Run the tools against the actual ...
 
 -   **[Runbook Generator](runbook-generator.md)**
 
     ---
 
     Tier: POWERFUL
+
+-   **[Secrets Vault Manager](secrets-vault-manager.md)**
+
+    ---
+
+    Tier: POWERFUL
+
+-   **[Self-Eval: Honest Work Evaluation](self-eval.md)**
+
+    ---
+
+    ultrathink
+
+-   **[Ship Gate](ship-gate.md)**
+
+    ---
+
+    Pre-production audit that scans a codebase and reports pass/fail/manual
 
 -   **[Skill Security Auditor](skill-security-auditor.md)**
 
@@ -189,18 +213,36 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
 
     ---
 
+    Tier: POWERFUL · Category: Engineering Quality Assurance · Dependencies: None (Python stdlib only)
+
+-   **[SLO Architect](slo-architect.md)**
+
     ---
+
+    Define SLOs that mean something. Most "SLOs" in the wild are arbitrary numbers no one believes — 99.9% on every endpo...
+
+-   **[Spec-Driven Workflow — POWERFUL](spec-driven-workflow.md)**
+
+    ---
+
+    Spec-driven workflow enforces a single, non-negotiable rule: write the specification BEFORE you write any code. Not a...
+
+-   **[SQL Database Assistant - POWERFUL Tier Skill](sql-database-assistant.md)**
+
+    ---
+
+    The operational companion to database design. While database-designer focuses on schema architecture and database-sch...
+
+-   **[TC Tracker](tc-tracker.md)**
+
+    ---
+
+    Track every code change with structured JSON records, an enforced state machine, and a session handoff format that le...
 
 -   **[Tech Debt Tracker](tech-debt-tracker.md)**
 
     ---
 
     Tier: POWERFUL 🔥
-
--   **[Terraform Patterns](terraform-patterns.md)**
-
-    ---
-
-    > Predictable infrastructure. Secure state. Modules that compose. No drift.
 
 </div>

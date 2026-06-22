@@ -1,13 +1,13 @@
 ---
 title: "Product Skills — Agent Skills & Codex Plugins"
-description: "15 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "17 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightbulb-outline: Product
 
-<p class="domain-count">15 skills in this domain</p>
+<p class="domain-count">17 skills in this domain</p>
 
 </div>
 
@@ -16,18 +16,6 @@ description: "15 product skills — product management agent skill and Claude Co
 </div>
 
 <div class="grid cards" markdown>
-
--   **[Agile Product Owner](agile-product-owner.md)**
-
-    ---
-
-    Backlog management and sprint execution toolkit for product owners, including user story generation, acceptance crite...
-
--   **[Code → PRD: Reverse-Engineer Any Codebase into Product Requirements](code-to-prd.md)**
-
-    ---
-
-    - 3-phase workflow: global scan → page-by-page analysis → structured document generation
 
 -   **[Competitive Teardown](competitive-teardown.md)**
 
@@ -65,23 +53,17 @@ description: "15 product skills — product management agent skill and Claude Co
 
     Essential tools and frameworks for modern product management, from discovery to delivery.
 
+-   **[Product Skills — Router](product-skills.md)**
+
+    ---
+
+    This plugin bundles 12 product skills (this router is the 13th folder under product-team/skills/). Each skill is self...
+
 -   **[Product Strategist](product-strategist.md)**
 
     ---
 
     Strategic toolkit for Head of Product to drive vision, alignment, and organizational excellence.
-
--   **[Product Team Skills](product-team.md)**
-
-    ---
-
-    8 production-ready product skills covering product management, UX/UI design, and SaaS development.
-
--   **[Research Summarizer](research-summarizer.md)**
-
-    ---
-
-    > Read less. Understand more. Cite correctly.
 
 -   **[Roadmap Communicator](roadmap-communicator.md)**
 
@@ -94,6 +76,12 @@ description: "15 product skills — product management agent skill and Claude Co
     ---
 
     Tier: POWERFUL
+
+-   **[Spec to Repo](spec-to-repo.md)**
+
+    ---
+
+    Turn a natural-language project specification into a complete, runnable starter repository. Not a template filler — a...
 
 -   **[UI Design System](ui-design-system.md)**
 

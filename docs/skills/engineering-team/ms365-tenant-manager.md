@@ -8,7 +8,7 @@ description: "Microsoft 365 tenant administration for Global Administrators. Aut
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `ms365-tenant-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/ms365-tenant-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/ms365-tenant-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -54,6 +54,28 @@ $policy = @{
 New-MgIdentityConditionalAccessPolicy -BodyParameter $policy
 ```
 
+### Bundled Python Generators
+
+Three stdlib tools generate the PowerShell artifacts deterministically — prefer them over hand-writing scripts for bulk/repeatable work. Sample input: `sample_input.json`; expected shape: `expected_output.json`.
+
+```bash
+# Tenant setup: checklist + DNS records + license plan (JSON), or the full setup script
+python3 scripts/tenant_setup.py --config sample_input.json --format json -o tenant_plan.json
+python3 scripts/tenant_setup.py --config sample_input.json --format powershell -o tenant_setup.ps1
+
+# User lifecycle: validate first, then generate creation/offboarding scripts
+python3 scripts/user_management.py --domain acme.com --action validate --users users.json
+python3 scripts/user_management.py --domain acme.com --action create --users users.json -o create_users.ps1
+python3 scripts/user_management.py --domain acme.com --action offboard --user-email jane@acme.com -o offboard.ps1
+
+# Admin scripts: CA policy / security audit / bulk licensing
+python3 scripts/powershell_generator.py --tenant-domain acme.com --task conditional-access --policy-config policy.json -o ca_policy.ps1
+python3 scripts/powershell_generator.py --tenant-domain acme.com --task security-audit -o audit.ps1
+python3 scripts/powershell_generator.py --tenant-domain acme.com --task bulk-license --users-csv users.csv --license-sku ENTERPRISEPACK -o licenses.ps1
+```
+
+**Gate:** for user creation, run `--action validate` first and require every entry to report `"is_valid": true` before generating the creation script. Review every generated `.ps1` against the workflows below before running it in the tenant.
+
 ---
 
 ## Workflows
@@ -61,6 +83,8 @@ New-MgIdentityConditionalAccessPolicy -BodyParameter $policy
 ### Workflow 1: New Tenant Setup
 
 **Step 1: Generate Setup Checklist**
+
+Run `python3 scripts/tenant_setup.py --config tenant.json --format json` and work through `setup_checklist` phase by phase; `dns_records` feeds Step 2 and `license_recommendations` feeds the licensing workflow.
 
 Confirm prerequisites before provisioning:
 - Global Admin account created and secured with MFA

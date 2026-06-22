@@ -58,6 +58,7 @@ jobs:
             # Skip non-skill paths
             case "$dir" in
               .github/*|.claude/*|.codex/*|.gemini/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*) continue ;;
+              */.claude-plugin) continue ;;
             esac
             # Check if this directory has a SKILL.md (is a skill)
             skill_root=$(echo "$file" | cut -d'/' -f1)
@@ -107,7 +108,7 @@ jobs:
       - name: Run security auditor on changed skills
         id: audit
         run: |
-          AUDITOR="engineering/skill-security-auditor/scripts/skill_security_auditor.py"
+          AUDITOR="engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py"
           SKILLS='${{ needs.detect-changes.outputs.skills }}'
           REPORT_FILE=$(mktemp)
           OVERALL_EXIT=0
@@ -191,8 +192,17 @@ jobs:
           echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
           echo "exit_code=$OVERALL_EXIT" >> "$GITHUB_OUTPUT"
 
+      - name: Post audit results to job summary
+        if: always()
+        run: |
+          REPORT_FILE="${{ steps.audit.outputs.report_file }}"
+          if [ -f "$REPORT_FILE" ]; then
+            cat "$REPORT_FILE" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Post audit results as PR comment
         if: always()
+        continue-on-error: true  # Fork PRs have read-only GITHUB_TOKEN
         uses: actions/github-script@v7
         with:
           script: |

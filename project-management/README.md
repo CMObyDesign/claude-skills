@@ -38,22 +38,22 @@ npx ai-agent-skills install alirezarezvani/claude-skills/project-management --ag
 
 ```bash
 # Senior Project Manager Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/senior-pm
+npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/senior-pm
 
 # Scrum Master Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/scrum-master
+npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/scrum-master
 
 # Atlassian Jira Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/jira-expert
+npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/jira-expert
 
 # Atlassian Confluence Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/confluence-expert
+npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/confluence-expert
 
 # Atlassian Administrator
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/atlassian-admin
+npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/atlassian-admin
 
 # Atlassian Template Creator
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/atlassian-templates
+npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/atlassian-templates
 ```
 
 **Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex
@@ -258,25 +258,38 @@ This project management skills collection provides world-class Atlassian experti
 
 ### Setup
 
-Configure Atlassian MCP server in your Claude Code settings with:
-- Jira/Confluence instance URL
-- API token or OAuth credentials
-- Project/space access permissions
+The plugin bundles a pre-configured `.mcp.json` pointing at Atlassian's official Remote MCP server (`https://mcp.atlassian.com/v1/sse`). When you enable the plugin:
+
+1. Claude Code reads `.mcp.json` and registers the `atlassian` SSE server automatically.
+2. On first tool call, you're redirected to Atlassian in your browser to authenticate (OAuth) and select which Cloud sites to grant access to.
+3. Tokens are managed by Claude Code — no API keys in environment variables, no credentials in the repo.
+
+**Prerequisites:**
+- An Atlassian Cloud account (free tier is sufficient — Jira Free or Confluence Free both work)
+- Access to at least one Jira project or Confluence space
+
+**No environment variables required** — the SSE transport handles OAuth automatically.
 
 ### Example Operations
 
+> **Note:** Real tool names are camelCase and surface in Claude Code as `mcp__atlassian__<toolName>` (server key `atlassian` from the bundled `.mcp.json`; plugin-loaded installs may use a plugin-scoped prefix with the same trailing tool name). The canonical tool list lives in [references/atlassian-mcp-tools.md](references/atlassian-mcp-tools.md) — never invent tool names; capabilities not in that list (project/sprint/filter/space creation, field configuration, automation rules) are not available via MCP and require the Atlassian web UI or REST API.
+
 ```bash
+# Discover accessible sites first (most tools require cloudId)
+mcp__atlassian__getAccessibleAtlassianResources
+
 # Create Jira issue
-mcp__atlassian__create_issue project="PROJ" summary="New feature" type="Story"
+mcp__atlassian__createJiraIssue (cloudId, projectKey="PROJ", issueTypeName="Story", summary="New feature")
 
-# Update issue status
-mcp__atlassian__transition_issue key="PROJ-123" status="In Progress"
+# Update issue status (look up the transition id first)
+mcp__atlassian__getTransitionsForJiraIssue (cloudId, issueIdOrKey="PROJ-123")
+mcp__atlassian__transitionJiraIssue (cloudId, issueIdOrKey="PROJ-123", transition=<id>)
 
-# Create Confluence page
-mcp__atlassian__create_page space="TEAM" title="Sprint Retrospective" content="..."
+# Create Confluence page (body = storage-format XHTML or ADF)
+mcp__atlassian__createConfluencePage (cloudId, space, title="Sprint Retrospective", body="...")
 
 # Run JQL query
-mcp__atlassian__search_issues jql="project = PROJ AND status = 'In Progress'"
+mcp__atlassian__searchJiraIssuesUsingJql (cloudId, jql="project = PROJ AND status = 'In Progress'")
 ```
 
 **Learn More:** See [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md) for MCP integration details
@@ -289,7 +302,7 @@ mcp__atlassian__search_issues jql="project = PROJ AND status = 'In Progress'"
 
 1. **Install Senior PM Expert:**
    ```bash
-   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/senior-pm
+   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/senior-pm
    ```
 
 2. **Use project charter template** from Atlassian Templates skill
@@ -300,7 +313,7 @@ mcp__atlassian__search_issues jql="project = PROJ AND status = 'In Progress'"
 
 1. **Install Scrum Master Expert:**
    ```bash
-   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/scrum-master
+   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/scrum-master
    ```
 
 2. **Use sprint planning template** for next sprint
@@ -311,7 +324,7 @@ mcp__atlassian__search_issues jql="project = PROJ AND status = 'In Progress'"
 
 1. **Install Jira Expert:**
    ```bash
-   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/jira-expert
+   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/jira-expert
    ```
 
 2. **Configure custom workflows** for your team
@@ -322,7 +335,7 @@ mcp__atlassian__search_issues jql="project = PROJ AND status = 'In Progress'"
 
 1. **Install Confluence Expert:**
    ```bash
-   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/confluence-expert
+   npx ai-agent-skills install alirezarezvani/claude-skills/project-management/skills/confluence-expert
    ```
 
 2. **Design space architecture** for your organization
@@ -491,5 +504,5 @@ mcp__atlassian__search_issues jql="project = PROJ AND status = 'In Progress'"
 ---
 
 **Last Updated:** January 2026
-**Skills Deployed:** 6/6 project management skills production-ready
+**Skills Deployed:** 9/9 project management skills production-ready
 **Key Feature:** Atlassian MCP integration for direct Jira/Confluence operations

@@ -8,7 +8,7 @@ description: "When the user wants to plan a content strategy, decide what conten
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `content-strategy`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-strategy/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-strategy/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -49,7 +49,26 @@ Gather this context (ask if not provided):
 ---
 
 ## Searchable vs Shareable
-→ See references/content-strategy-reference.md for details
+
+The core classification decision for every topic:
+
+- **Searchable** — people already query this (keyword volume exists). Goal: rank and convert. Format: use-case pages, comparisons, how-tos, hub/spoke clusters. Judged by rankings + organic conversions over 6-12 months.
+- **Shareable** — nobody searches it yet, but it spreads (original data, contrarian POV, strong narrative). Goal: reach + links + brand. Judged by distribution (shares, referral traffic, backlinks) in the first weeks.
+
+**Decision rule:** if the topic has meaningful search volume AND clear buyer intent → searchable (build it into a cluster). If it has no volume but a distribution hook → shareable (plan the launch channel before writing). If both → searchable structure with a shareable angle (best ROI). If neither → don't write it.
+
+Full treatment: references/content-strategy-reference.md
+
+## Topic Cluster Mapping (bundled tool)
+
+Once priority topics exist, group them mechanically:
+
+```bash
+python3 scripts/topic_cluster_mapper.py --file keywords.txt          # one topic/keyword per line
+python3 scripts/topic_cluster_mapper.py --file keywords.txt --json  # for pipelines
+```
+
+Its cluster output is the starting point for §3 Topic Cluster Map below — review cluster boundaries by intent (the tool groups lexically; you verify buyer-stage coherence).
 
 ## Output Format
 

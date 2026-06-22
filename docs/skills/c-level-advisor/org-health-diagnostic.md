@@ -8,7 +8,7 @@ description: "Cross-functional organizational health check combining signals fro
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `org-health-diagnostic`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/org-health-diagnostic/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/org-health-diagnostic/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -28,11 +28,10 @@ python scripts/health_scorer.py        # Guided CLI — enter metrics, get score
 python scripts/health_scorer.py --json # Output raw JSON for integration
 ```
 
-Or describe your metrics:
-```
-/health [paste your key metrics or answer prompts]
-/health:dimension [financial|revenue|product|engineering|people|ops|security|market]
-```
+Or describe your metrics in natural language:
+
+> "Run an org health check" — paste your key metrics or answer prompts
+> "Score our [financial|revenue|product|engineering|people|ops|security|market] health" — single-dimension deep dive
 
 ## The 8 Dimensions
 

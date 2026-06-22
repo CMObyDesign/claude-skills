@@ -8,7 +8,7 @@ description: "Cross-functional what-if modeling for cascading multi-variable sce
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `scenario-war-room`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/scenario-war-room/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/scenario-war-room/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -27,12 +27,11 @@ scenario planning, war room, what-if analysis, risk modeling, cascading effects,
 python scripts/scenario_modeler.py   # Interactive scenario builder with cascade modeling
 ```
 
-Or describe the scenario:
-```
-/war-room "What if we lose our top customer AND miss the Q3 fundraise?"
-/war-room "What if 3 engineers quit AND we need to ship by Q3?"
-/war-room "What if our market shrinks 30% AND a competitor raises $50M?"
-```
+Or describe the scenario in natural language:
+
+> "What if we lose our top customer AND miss the Q3 fundraise?"
+> "What if 3 engineers quit AND we need to ship by Q3?"
+> "What if our market shrinks 30% AND a competitor raises $50M?"
 
 ## What This Is Not
 

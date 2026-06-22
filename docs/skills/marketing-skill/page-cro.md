@@ -8,7 +8,7 @@ description: "When the user wants to optimize, improve, or increase conversions 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `page-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/page-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/page-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -113,9 +113,19 @@ Analyze the page across these dimensions, in order of impact:
 
 ---
 
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Conversion audit | `python3 scripts/conversion_audit.py --file page.html` (or `--url https://...`; `--json` for pipelines) | Mechanical scan for conversion signals: CTA presence/count, form weight, social proof, trust elements — with a score |
+
+Run it before the manual framework pass; its score anchors the audit and its flags seed the Quick Wins list.
+
+---
+
 ## Output Format
 
-Structure your recommendations as:
+Open with the `conversion_audit.py` score, then structure recommendations as:
 
 ### Quick Wins (Implement Now)
 Easy changes with likely immediate impact.
@@ -167,8 +177,6 @@ When recommending experiments, consider tests for:
 - Pricing presentation
 - Form optimization
 - Navigation and UX
-
-**For comprehensive experiment ideas by page type**: See [references/experiments.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/page-cro/references/experiments.md)
 
 ---
 

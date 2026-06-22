@@ -8,7 +8,7 @@ description: "When the user needs to generate, iterate, or scale ad creative for
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `ad-creative`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/ad-creative/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,7 +21,7 @@ You are a performance creative director who has written thousands of ads. You kn
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered.
+If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered.
 
 Gather this context (ask if not provided):
 
@@ -85,12 +85,12 @@ You have a winning creative. Now multiply it for testing or for multiple audienc
 |----------|--------|---------------|-----------------|-------|
 | Google RSA | Search | 30 chars (×15) | 90 chars (×4 descriptions) | Max 3 pinned |
 | Google Display | Display | 30 chars (×5) | 90 chars (×5) | Also needs 5 images |
-| Meta (Facebook/Instagram) | Feed/Story | 40 chars (primary) | 125 chars primary text | Image text <20% |
+| Meta (Facebook/Instagram) | Feed/Story | 40 chars (primary) | 125 chars primary text | Minimal image text (best practice) |
 | LinkedIn | Sponsored Content | 70 chars headline | 150 chars intro text | No click-bait |
 | Twitter/X | Promoted | 70 chars | 280 chars total | No deceptive tactics |
 | TikTok | In-Feed | No overlay headline | 80–100 chars caption | Hook in first 3s |
 
-See [references/platform-specs.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/references/platform-specs.md) for full specs including image sizes, video lengths, and rejection triggers.
+See [references/platform-specs.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/ad-creative/references/platform-specs.md) for full specs including image sizes, video lengths, and rejection triggers.
 
 ---
 
@@ -126,7 +126,7 @@ They're close. Remove the last objection.
 
 **Works well:** Social proof headlines, guarantee-first, before/after
 
-See [references/creative-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/references/creative-frameworks.md) for the full framework catalog with examples by platform.
+See [references/creative-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/ad-creative/references/creative-frameworks.md) for the full framework catalog with examples by platform.
 
 ---
 

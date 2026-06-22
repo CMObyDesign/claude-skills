@@ -8,7 +8,7 @@ description: "EU MDR 2017/745 compliance specialist for medical device classific
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `mdr-745-specialist`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/mdr-745-specialist/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/mdr-745-specialist/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -125,8 +125,8 @@ ANNEX II TECHNICAL DOCUMENTATION
 | I | Annex II self-declaration | None |
 | Is/Im | Annex II + IX/XI | Sterile/measuring aspects |
 | IIa | Annex II + IX or XI | Product or QMS |
-| IIb | Annex IX + X or X + XI | Type exam + production |
-| III | Annex IX + X | Full QMS + type exam |
+| IIb | Annex IX, or Annex X + XI | QMS + tech doc assessment, or type exam + production |
+| III | Annex IX, or Annex X + XI | Full QMS + product dossier, or type exam + production |
 
 ---
 
@@ -193,19 +193,19 @@ Establish PMS system per Chapter VII:
 | Component | Requirement | Frequency |
 |-----------|-------------|-----------|
 | PMS Plan | Article 84 | Maintain current |
-| PSUR | Class IIa and higher | Per class schedule |
+| PSUR | Article 86 — Class IIa and higher | Per Art. 86(1) schedule below |
 | PMCF Plan | Annex XIV Part B | Update with CER |
 | PMCF Report | Annex XIV Part B | Annual (Class III) |
 | Vigilance | Articles 87-92 | As events occur |
 
 ### PSUR Schedule
 
-| Class | Frequency |
-|-------|-----------|
-| Class III | Annual |
-| Class IIb implantable | Annual |
-| Class IIb | Every 2 years |
-| Class IIa | When necessary |
+| Class | Frequency (MDR Art. 86(1)) |
+|-------|-----------------------------|
+| Class III | Updated at least annually |
+| Class IIb (all, incl. implantable) | Updated at least annually |
+| Class IIa | When necessary, at least every 2 years |
+| Class I | No PSUR — PMS report instead (Art. 85) |
 
 ### Serious Incident Reporting
 
